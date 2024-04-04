@@ -9,7 +9,9 @@ import ReactFlow, {
 } from 'reactflow';
  
 import 'reactflow/dist/style.css';
+
 import mlff_node from './CustomNode';
+import './styles.css';
 
  
 // Function to map year to x-position
