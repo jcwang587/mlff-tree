@@ -11,10 +11,18 @@ import ReactFlow, {
 import 'reactflow/dist/style.css';
  
 const initialNodes = [
-  { id: '1', position: { x: 0, y: 0 }, data: { label: '1' } },
-  { id: '2', position: { x: 0, y: 100 }, data: { label: '2' } },
+  { id: '1', position: { x: 100, y: 100 }, data: { label: 'Lifson-type' } },
+  { id: '2', position: { x: 300, y: 100 }, data: { label: 'AMBER' } },
+  { id: '3', position: { x: 500, y: 100 }, data: { label: 'GROMOS' } },
+  { id: '4', position: { x: 700, y: 100 }, data: { label: 'OPLS' } },
+  { id: '5', position: { x: 900, y: 100 }, data: { label: 'GAFF' } },
 ];
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
+const initialEdges = [
+  { id: 'e1-2', source: '1', target: '2', animated: true },
+  { id: 'e2-3', source: '2', target: '3', animated: true },
+  { id: 'e3-4', source: '3', target: '4', animated: true },
+  { id: 'e4-5', source: '4', target: '5', animated: true },
+];
  
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
