@@ -9,13 +9,52 @@ import ReactFlow, {
 } from 'reactflow';
  
 import 'reactflow/dist/style.css';
+import mlff_node from './CustomNode';
+
  
+// Function to map year to x-position
+const year2x = (year) => {
+  const startYear = 1970;
+  const endYear = 2030;
+  const startX = 100;
+  const endX = 1500;
+  const scaleFactor = (endX - startX) / (endYear - startYear);
+  return startX + (year - startYear) * scaleFactor;
+};
+
+
 const initialNodes = [
-  { id: '1', position: { x: 100, y: 100 }, data: { label: 'Lifson-type' } },
-  { id: '2', position: { x: 300, y: 100 }, data: { label: 'AMBER' } },
-  { id: '3', position: { x: 500, y: 100 }, data: { label: 'GROMOS' } },
-  { id: '4', position: { x: 700, y: 100 }, data: { label: 'OPLS' } },
-  { id: '5', position: { x: 900, y: 100 }, data: { label: 'GAFF' } },
+  {
+    id: '0',
+    type: 'mlff_node',
+    position: { x: year2x(1965), y: 100 },
+    data: { label: 'GDML' },
+  },
+  { 
+    id: '1', 
+    type: 'mlff_node',
+    position: { x: year2x(1970), y: 100 }, 
+    data: { label: 'Lifson-type' } 
+  },
+  { 
+    id: '2', 
+    type: 'mlff_node',
+    position: { x: year2x(1975), y: 100 }, 
+    data: { label: 'AMBER' } 
+  },
+  { 
+    id: '3', 
+    position: { x: 500, y: 100 }, 
+    data: { label: 'GROMOS' } 
+  },
+  { id: '4', 
+  position: { x: 700, y: 100 }, 
+  data: { label: 'OPLS' } 
+  },
+  { id: '5', 
+  position: { x: 900, y: 100 }, 
+  data: { label: 'GAFF' } 
+  },
 ];
 const initialEdges = [
   { id: 'e1-2', source: '1', target: '2', animated: true },
@@ -41,6 +80,7 @@ export default function App() {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        nodeTypes = {{ mlff_node }}
       >
         <Controls />
         <MiniMap />
