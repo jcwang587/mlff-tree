@@ -12,8 +12,9 @@ const mlff_node = ({ data }) => {
     <div 
       className="mlff_node" 
       style={{ 
-        width: '150px', 
-        height: '50px', 
+        minwidth: '50px', 
+        padding: '7px',
+        height: '17px', 
         backgroundColor: '#F8E8D1',
         borderRadius: '15px',
         textAlign: 'center',
@@ -28,9 +29,9 @@ const mlff_node = ({ data }) => {
       }}
       onClick={handleClick}
     >
-      <Handle type="target" position="top" />
+      <Handle type="target" position="left" />
       <div>{data.label}</div>
-      <Handle type="source" position="bottom" />
+      <Handle type="source" position="right" />
     </div>
   );
 };

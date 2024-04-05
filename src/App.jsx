@@ -6,6 +6,7 @@ import ReactFlow, {
   useNodesState,
   useEdgesState,
   addEdge,
+  MarkerType,
 } from 'reactflow';
  
 import 'reactflow/dist/style.css';
@@ -18,51 +19,97 @@ import './styles.css';
 const year2x = (year) => {
   const startYear = 1970;
   const endYear = 2030;
-  const startX = 100;
+  const startX = 50;
   const endX = 1500;
   const scaleFactor = (endX - startX) / (endYear - startYear);
   return startX + (year - startYear) * scaleFactor;
 };
 
 
+// Function to map row to y-position
+const row2y = (row) => {
+  return row * 40;
+};
+
+
 const initialNodes = [
   {
-    id: '0',
+    id: 'gdml',
     type: 'mlff_node',
-    position: { x: year2x(1965), y: 100 },
+    position: { x: year2x(2015), y: row2y(1) },
     data: { label: 'GDML' },
   },
-  { 
-    id: '1', 
+  {
+    id: 'sgdml',
     type: 'mlff_node',
-    position: { x: year2x(1970), y: 100 }, 
+    position: { x: year2x(2020), y: row2y(1) },
+    data: { label: 'sGDML' },
+  },
+
+
+
+  { 
+    id: 'lifsontype', 
+    type: 'mlff_node',
+    position: { x: year2x(1970), y: row2y(8) }, 
     data: { label: 'Lifson-type' } 
   },
   { 
-    id: '2', 
+    id: 'amber', 
     type: 'mlff_node',
-    position: { x: year2x(1975), y: 100 }, 
+    position: { x: year2x(1990), y: row2y(8) }, 
     data: { label: 'AMBER' } 
   },
   { 
-    id: '3', 
-    position: { x: 500, y: 100 }, 
+    id: 'gromos', 
+    type: 'mlff_node',
+    position: { x: year2x(2000), y: row2y(8) }, 
     data: { label: 'GROMOS' } 
   },
-  { id: '4', 
-  position: { x: 700, y: 100 }, 
+  { id: 'opls', 
+  type: 'mlff_node',
+  position: { x: year2x(2005), y: row2y(8) }, 
   data: { label: 'OPLS' } 
   },
-  { id: '5', 
-  position: { x: 900, y: 100 }, 
+  { id: 'gaff', 
+  type: 'mlff_node',
+  position: { x: year2x(2010), y: row2y(8) }, 
   data: { label: 'GAFF' } 
   },
 ];
 const initialEdges = [
-  { id: 'e1-2', source: '1', target: '2', animated: true },
-  { id: 'e2-3', source: '2', target: '3', animated: true },
-  { id: 'e3-4', source: '3', target: '4', animated: true },
-  { id: 'e4-5', source: '4', target: '5', animated: true },
+  { 
+    id: 'e1-1', 
+    source: 'gdml', 
+    target: 'sgdml', 
+    animated: true 
+  },
+  { 
+    id: 'e1-2', 
+    source: 'lifsontype', 
+    target: 'amber', 
+    animated: true ,
+    style: { strokeWidth: 4, } ,
+    markerEnd: { type: MarkerType.ArrowClosed, }
+  },
+  { 
+    id: 'e2-3', 
+    source: 'amber', 
+    target: 'gromos', 
+    animated: true 
+  },
+  { 
+    id: 'e3-4', 
+    source: 'gromos', 
+    target: 'opls', 
+    animated: true 
+  },
+  { 
+    id: 'e4-5', 
+    source: 'opls', 
+    target: 'gaff', 
+    animated: true 
+  },
 ];
  
 export default function App() {
