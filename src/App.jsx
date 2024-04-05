@@ -45,9 +45,6 @@ const initialNodes = [
     position: { x: year2x(2020), y: row2y(1) },
     data: { label: 'sGDML' },
   },
-
-
-
   { 
     id: 'lifsontype', 
     type: 'mlff_node',
