@@ -8,14 +8,15 @@ const mlff_node = ({ data }) => {
     setIsSelected(!isSelected);
   };
 
+  const backgroundColor = data.color || '#F8E8D1';
+
   return (
     <div 
-      className="mlff_node" 
       style={{ 
         minwidth: '50px', 
         padding: '7px',
         height: '17px', 
-        backgroundColor: '#F8E8D1',
+        backgroundColor: backgroundColor,
         borderRadius: '15px',
         textAlign: 'center',
         display: 'flex',

@@ -32,18 +32,26 @@ const row2y = (row) => {
 };
 
 
+// Constant to store color of class
+const mlff_class = {
+  'global_node': '#F2DBD5',
+  'local_node': '#F8E8D1',
+  'spehere': '#B3CAD8',
+  'direction': '#BFD1C4',
+};
+
 const initialNodes = [
   {
     id: 'gdml',
     type: 'mlff_node',
     position: { x: year2x(2015), y: row2y(1) },
-    data: { label: 'GDML' },
+    data: { label: 'GDML', color: mlff_class['local_node'] },
   },
   {
     id: 'sgdml',
     type: 'mlff_node',
     position: { x: year2x(2020), y: row2y(1) },
-    data: { label: 'sGDML' },
+    data: { label: 'sGDML', color: mlff_class['spehere'] },
   },
   { 
     id: 'lifsontype', 
@@ -74,6 +82,7 @@ const initialNodes = [
   data: { label: 'GAFF' } 
   },
 ];
+
 const initialEdges = [
   { 
     id: 'e1-1', 
