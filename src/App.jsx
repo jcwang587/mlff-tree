@@ -20,7 +20,7 @@ const year2x = (year) => {
   const startYear = 1970;
   const endYear = 2030;
   const startX = 50;
-  const endX = 1500;
+  const endX = 1300;
   const scaleFactor = (endX - startX) / (endYear - startYear);
   return startX + (year - startYear) * scaleFactor;
 };
@@ -28,7 +28,7 @@ const year2x = (year) => {
 
 // Function to map row to y-position
 const row2y = (row) => {
-  return row * 40;
+  return row * 50;
 };
 
 
@@ -45,42 +45,132 @@ const initialNodes = [
     id: 'gdml',
     type: 'mlff_node',
     position: { x: year2x(2015), y: row2y(1) },
-    data: { label: 'GDML', color: mlff_class['local_node'] },
+    data: { label: 'GDML', color: mlff_class['global_node'] },
   },
   {
     id: 'sgdml',
     type: 'mlff_node',
     position: { x: year2x(2020), y: row2y(1) },
-    data: { label: 'sGDML', color: mlff_class['spehere'] },
+    data: { label: 'sGDML', color: mlff_class['global_node'] },
+  },
+  {
+    id: 'productpes',
+    type: 'mlff_node',
+    position: { x: year2x(2010), y: row2y(2) },
+    data: { label: 'Product PES', color: mlff_class['global_node'] },
+  },
+  {
+    id: 'shepardinterpolation',
+    type: 'mlff_node',
+    position: { x: year2x(1990), y: row2y(3) },
+    data: { label: 'Shepard-interpolation', color: mlff_class['global_node'] },
+  },
+  {
+    id: 'pips',
+    type: 'mlff_node',
+    position: { x: year2x(2005), y: row2y(3) },
+    data: { label: 'PIP-s', color: mlff_class['global_node'] },
+  },
+  {
+    id: 'apips',
+    type: 'mlff_node',
+    position: { x: year2x(2015), y: row2y(3) },
+    data: { label: 'aPIP-s', color: mlff_class['global_node'] },
+  },
+  {
+    id: 'fragmentpips',
+    type: 'mlff_node',
+    position: { x: year2x(2020), y: row2y(3) },
+    data: { label: 'fragment PIP-s', color: mlff_class['global_node'] },
+  },
+  {
+    id: 'acsf',
+    type: 'mlff_node',
+    position: { x: year2x(2008), y: row2y(4) },
+    data: { label: 'ACSF', color: mlff_class['global_node'] },
+  },
+  {
+    id: 'ani1',
+    type: 'mlff_node',
+    position: { x: year2x(2012), y: row2y(4) },
+    data: { label: 'ANI-1', color: mlff_class['global_node'] },
   },
   { 
     id: 'lifsontype', 
     type: 'mlff_node',
-    position: { x: year2x(1970), y: row2y(8) }, 
+    position: { x: year2x(1970), y: row2y(5) }, 
     data: { label: 'Lifson-type' } 
   },
   { 
     id: 'amber', 
     type: 'mlff_node',
-    position: { x: year2x(1990), y: row2y(8) }, 
+    position: { x: year2x(1990), y: row2y(5) }, 
     data: { label: 'AMBER' } 
   },
   { 
     id: 'gromos', 
     type: 'mlff_node',
-    position: { x: year2x(2000), y: row2y(8) }, 
+    position: { x: year2x(2000), y: row2y(5) }, 
     data: { label: 'GROMOS' } 
   },
   { id: 'opls', 
   type: 'mlff_node',
-  position: { x: year2x(2005), y: row2y(8) }, 
+  position: { x: year2x(2005), y: row2y(5) }, 
   data: { label: 'OPLS' } 
   },
   { id: 'gaff', 
   type: 'mlff_node',
-  position: { x: year2x(2010), y: row2y(8) }, 
+  position: { x: year2x(2010), y: row2y(5) }, 
   data: { label: 'GAFF' } 
   },
+  {
+    id: 'bespokefit',
+    type: 'mlff_node',
+    position: { x: year2x(2015), y: row2y(5) },
+    data: { label: 'BespokeFit', color: mlff_class['local_node'] },
+  },
+  {
+    id: 'espaloma',
+    type: 'mlff_node',
+    position: { x: year2x(2022), y: row2y(5) },
+    data: { label: 'Espaloma', color: mlff_class['local_node'] },
+  },
+  {
+    id: 'reaxff',
+    type: 'mlff_node',
+    position: { x: year2x(2005), y: row2y(6) },
+    data: { label: 'ReaxFF', color: mlff_class['local_node'] },
+  },
+  {
+    id: 'schnet',
+    type: 'mlff_node',
+    position: { x: year2x(2015), y: row2y(7) },
+    data: { label: 'SchNet', color: mlff_class['local_node'] },
+  },
+  {
+    id: 'dimenet',
+    type: 'mlff_node',
+    position: { x: year2x(2020), y: row2y(7) },
+    data: { label: 'DimeNet', color: mlff_class['local_node'] },
+  },
+  {
+    id: 'gemnet',
+    type: 'mlff_node',
+    position: { x: year2x(2022), y: row2y(7) },
+    data: { label: 'GemNet', color: mlff_class['local_node'] },
+  },
+  {
+    id: 'tfnn',
+    type: 'mlff_node',
+    position: { x: year2x(2010), y: row2y(8) },
+    data: { label: 'TFNN', color: mlff_class['local_node'] },
+  },
+  {
+    id: 'painn',
+    type: 'mlff_node',
+    position: { x: year2x(2020), y: row2y(8) },
+    data: { label: 'PaiNN', color: mlff_class['local_node'] },
+  }
 ];
 
 const initialEdges = [
